@@ -1,13 +1,13 @@
-# Fishing RL (DQN)
+# RL (DQN)
 
-Treino de uma IA com DQN para jogar um minijogo de pesca mantendo a barra branca sobreposta à barra cinzenta.
+Treino de uma IA com DQN.
 
 ## Estrutura
 
 - `env/`
   - `sim_env.py`: ambiente de simulação (Pygame) para treino rápido.
   - `fishing_env.py`: ambiente real via captura de ecrã e controlo do rato.
-  - `chet_sim_env.py`: simulador compatível com o minijogo do chet-bot (OpenCV), ideal para ver a aprendizagem.
+  - `chet_sim_env.py`: simulador compatível com o OpenCV, ideal para ver a aprendizagem.
 - `agents/`
   - `dqn.py`: implementação do DQN (rede, treino, target network).
   - `replay_buffer.py`: buffer de replay com experiências e frame stacking.
@@ -24,7 +24,7 @@ Treino de uma IA com DQN para jogar um minijogo de pesca mantendo a barra branca
 
 Windows 10/11 com permissões para captura de ecrã e controlo do rato.
 
-Python 3.10+ recomendado.
+Python 3.10+.
 
 Instalar dependências:
 
@@ -39,7 +39,7 @@ Se o `pyautogui` pedir dependências extra, confirme permissões de Acessibilida
 
 ## Como correr (simulação)
 
-Treino num ambiente Pygame local (mais rápido):
+Treino num ambiente local:
 
 ```pwsh
 python train.py --env sim --total-steps 200000 --run-name sim-baseline
@@ -51,17 +51,13 @@ Renderizar ocasionalmente:
 python train.py --env sim --render-every 2000
 ```
 
-Simulador inspirado no chet-bot (linha cinzenta e barra branca com física semelhante):
+Simulador:
 
 ```pwsh
 python train.py --env chet-sim --total-steps 200000 --render-every 1000 --run-name chet-sim
 ```
 
-## Como correr (jogo real)
-
-- Abra o minijogo e deixe a janela visível.
-- Ajuste a região de captura com `--capture-rect x y w h`.
-- Tenha o rato livre; o script vai movê-lo verticalmente.
+## Como correr
 
 Exemplo:
 
@@ -70,12 +66,11 @@ python train.py --env real --capture-rect 800 400 300 300 --total-steps 300000 -
 ```
 
 Notas:
-- O jogo começa com ~1.5s de barras centradas; o ambiente respeita isso no `reset()`.
-- Use `--safe-mode` para limitar velocidade e amplitude do rato enquanto afina a região.
+- Usar `--safe-mode` para limitar velocidade e amplitude do rato enquanto o bot afina a região.
 
 ## Checkpoints e TensorBoard
 
-Checkpoints são gravados em `models/` e logs do TensorBoard em `runs/`.
+Checkpoints são gravados em `models/` e os logs do TensorBoard em `runs/`.
 
 Abrir TensorBoard:
 
@@ -104,7 +99,7 @@ python train.py --config presets/chet_sim_qr_fast.json --run-name chet-sim-qr
 ```
 
 Opções úteis (todas disponíveis via `--help`):
-- `--num-envs 4` paraleliza o chet-sim (AsyncVectorEnv)
+- `--num-envs 4` paraleliza a IA (AsyncVectorEnv)
 - `--async-learner` ativa um thread de aprendizagem em paralelo
 - `--c51` ou `--qr-dqn` (exclusivos) para distribuição de valores
 - `--n-step 3` para returns de 3 passos
@@ -125,13 +120,4 @@ O projeto inclui um `Dockerfile` (CUDA) para treino containerizado. Ajuste volum
 
 ### Experimentos (sweeps)
 
-Use `sweep.py` para varrer grelhas de hiperparâmetros em série. Edite o ficheiro para definir combinações.
-
-## Segurança
-
-- Durante treino real, não use o rato para outras tarefas.
-- Considere usar ecrã dedicado ou VM.
-
-## Licença
-
-Uso educacional. Sem garantias.
+Usar `sweep.py` para varrer grelhas de hiperparâmetros em série.
