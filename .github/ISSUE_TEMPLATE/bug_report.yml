@@ -1,0 +1,33 @@
+name: Bug Report
+description: File a bug report
+labels: ["bug"]
+title: "[Bug] <brief title>"
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: Minimal steps/code to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs & Traceback
+      description: Paste relevant logs or error output
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Version/commit
+      description: Git SHA or tag
+    validations:
+      required: false

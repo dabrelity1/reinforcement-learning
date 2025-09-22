@@ -1,0 +1,49 @@
+name: Task (Copilot-ready)
+description: A small, actionable task suitable for GitHub Copilot Agent
+labels: ["task", "copilot"]
+title: "[Task] <brief title>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Write a concise, testable task. Keep PR scope small. Include acceptance criteria.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What should be implemented/changed and why?
+      placeholder: Short context and objective
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Bullet list of objective checks Copilot can verify
+      placeholder: |
+        - Tests pass locally and in CI
+        - Feature flag is default off (if applicable)
+        - No regressions in tests/test_tiny_train.py
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and Constraints
+      description: Files, APIs, or boundaries Copilot should respect
+      placeholder: |
+        - Limit changes to agents/dqn.py and train.py
+        - Keep public flags backward compatible
+    validations:
+      required: false
+  - type: textarea
+    id: plan
+    attributes:
+      label: Suggested Plan
+      description: Optional steps Copilot can follow
+      placeholder: |
+        1) Add flag
+        2) Wire into train.py
+        3) Update tests
+    validations:
+      required: false

@@ -1,0 +1,69 @@
+{
+  "capture": {
+    "roi": [
+      573,
+      910,
+      775,
+      28
+    ],
+    "downscale": 1.0,
+    "capture_fps_target": 60,
+    "use_dxcam": false,
+    "frame_buffer_size": 2,
+    "monitor_index": 1
+  },
+  "detection": {
+    "template_path": null,
+    "template_match_threshold": 0.72,
+    "template_multi_scale": true,
+    "template_scales": [
+      0.9,
+      1.0,
+      1.1
+    ],
+    "max_template_candidates": 5,
+    "fallback_enabled": true,
+    "fish_grey_lower": 70,
+    "fish_grey_upper": 170,
+    "rect_white_threshold": 230,
+    "morphological_kernel": 3,
+    "lost_fish_grace_frames": 6
+  },
+  "control": {
+    "hysteresis_low": 6,
+    "hysteresis_high": 12,
+    "prediction_factor": 0.07,
+    "latency_compensation_default": 0.02,
+    "min_toggle_interval": 0.02,
+    "collision_damp_window": 0.08,
+    "wall_bias_zone_fraction": 0.08,
+    "wall_bias_magnitude": 6.0,
+    "ewma_alpha_pos": 0.3,
+    "ewma_alpha_vel": 0.2,
+    "max_frame_skip": 1
+  },
+  "debug": {
+    "debug": true,
+    "dry_run": false,
+    "show_overlay": true,
+    "log_level": "DEBUG",
+    "metrics_interval_sec": 5.0,
+    "overlay_font_scale": 0.6,
+    "overlay_thickness": 1,
+    "log_file": "fishbot.log",
+    "log_max_bytes": 2000000,
+    "log_backup_count": 3
+  },
+  "simulator": {
+    "enabled": false,
+    "width": 800,
+    "height": 400,
+    "rect_accel": 140.0,
+    "rect_drag": 0.85,
+    "wall_restitution": 0.25,
+    "fish_speed_min": 30.0,
+    "fish_speed_max": 380.0,
+    "occlusion_probability": 0.02
+  },
+  "version": 1
+}

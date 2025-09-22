@@ -1,0 +1,21 @@
+{
+  "env": "chet-sim",
+  "num_envs": 16,
+  "prioritized": true,
+  "per_alpha": 0.6,
+  "per_beta_start": 0.4,
+  "per_beta_end": 1.0,
+  "per_beta_decay": 200000,
+  "n_step": 3,
+  "c51": true,
+  "num_atoms": 51,
+  "vmin": -10.0,
+  "vmax": 10.0,
+  "batch_size": 128,
+  "updates_per_step": 3,
+  "total_steps": 500000,
+  "save_every": 50000,
+  "compile": true,
+  "pin_memory": true,
+  "run_name": "chet-sim-rainbow"
+}
