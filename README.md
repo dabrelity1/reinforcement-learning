@@ -5,7 +5,7 @@ Treino de uma IA com DQN.
 ## Estrutura
 
 - `env/`
-  - `sim_env.py`: ambiente de simulação (Pygame) para treino rápido.
+  - `sim_env.py`: ambiente de simulação para treino rápido.
   - `fishing_env.py`: ambiente real via captura de ecrã e controlo do rato.
   - `chet_sim_env.py`: simulador compatível com o OpenCV, ideal para ver a aprendizagem.
 - `agents/`
