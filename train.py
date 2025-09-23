@@ -64,7 +64,7 @@ class Args:
     gamma: float = 0.99
     lr: float = 1e-4
     target_update_every: int = 1000
-    tau: float = 0.0  # Polyak average factor; >0 enables soft target updates
+    tau: float = 0.0  # Polyak average factor; >0 enables soft target updates (e.g., 0.005 for stability)
     eval_every: int = 25_000
     eval_episodes: int = 5
     save_every: int = 50_000
@@ -112,8 +112,8 @@ class Args:
     num_atoms: int = 51
     vmin: float = -10.0
     vmax: float = 10.0
-    # Quantile Regression DQN
-    qr_dqn: bool = False
+    # Quantile Regression DQN (recommended for better distributional approximation)
+    qr_dqn: bool = False  # Set to True for improved performance over C51
     num_quantiles: int = 51
     huber_kappa: float = 1.0
     # LR scheduler options
